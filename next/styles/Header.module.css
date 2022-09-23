@@ -8,31 +8,14 @@
     width: 100vw;
 }
 
-.nameContainer {
-    padding: 10px 13.4px;
-    border: 2px solid #20758d ;
+.sections { 
     display: flex;
-    border-radius: 8px;
-    color: #20758d;
-    font-size: 20px;
-    font-weight: 500;
+    justify-content: space-between;
 }
-
-
-.name {
-    display: inline-block;
+.sections h6 {
+    padding: 10px;
+    font-family: 'Albert Sans', sans-serif;
 }
-
-.shar {
-    display: inline-block;
-    overflow: hidden;
-}
-.button {
-    color: #fff;
-    background-color: #20758d;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-family: "Albert Sans", sans-serif;
+.sections h6 span {
+   font-family: 'Cousine', monospace;;
 }
