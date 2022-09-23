@@ -1,0 +1,38 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100vw;
+}
+
+.nameContainer {
+    padding: 10px 13.4px;
+    border: 2px solid #20758d ;
+    display: flex;
+    border-radius: 8px;
+    color: #20758d;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.name {
+    display: inline-block;
+}
+
+.shar {
+    display: inline-block;
+    overflow: hidden;
+}
+.button {
+    color: #fff;
+    background-color: #20758d;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: "Albert Sans", sans-serif;
+}
