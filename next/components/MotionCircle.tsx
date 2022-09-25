@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../styles/MotionUnderline.module.css";
+import styles from "../styles/MotionCircle.module.css";
 const transition = { duration: 2, ease: "easeInOut", delay: 4 };
 
 import { motion } from "framer-motion";
-const MotionUnderline = ({ children }: { children: React.ReactNode }) => {
+const MotionCircle = ({ children }: { children: React.ReactNode }) => {
   return (
     <span className={styles.container}>
       {children}
@@ -30,4 +30,4 @@ const MotionUnderline = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default MotionUnderline;
+export default MotionCircle;

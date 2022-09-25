@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/Hello.module.css";
 
 import { motion, Variants } from "framer-motion";
-import MotionUnderline from "../MotionUnderline";
+import MotionUnderline from "../MotionCircle";
 
 const lineVariants: Variants = {
   hidden: {
@@ -37,7 +37,7 @@ const Hello = () => {
       </motion.div>
       <motion.div className={styles.brief}>
         I am a final year student from India. I can make website and cross-platform apps (sometime design them too).
-        Currently I&apos;m waiting to join
+        Currently I&apos;m working as a freelancer and will be joining
         <span> Oracle</span> in January.
         {/* Currently I&apos;m working at Oracle as a Software developer engineer */}
       </motion.div>

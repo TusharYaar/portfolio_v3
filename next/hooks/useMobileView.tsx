@@ -10,7 +10,6 @@ const useMobileView = () => {
     window.addEventListener("resize", (event) => {
       setState(window.innerWidth <= MOBILE_WIDTH);
     });
-    // return () => window.removeEventListener("resize")
   }, []);
 
   return state;

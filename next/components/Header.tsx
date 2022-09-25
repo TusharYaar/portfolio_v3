@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Header.module.css";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 type Sections = {
   name: string;
@@ -26,7 +27,7 @@ const navbarVariants: Variants = {
 const sections: Sections[] = [
   {
     name: "About",
-    link: "#",
+    link: "#about",
   },
   {
     name: "Skills",
@@ -52,9 +53,11 @@ const Header = () => {
       Tushar
       <div className={styles.sections}>
         {sections.map((item, index) => (
-          <h6 key={index}>
-            <span>{index}.</span> {item.name}
-          </h6>
+          <Link href={item.link} key={item.name}>
+            <p>
+              <span>{index}.</span> {item.name}
+            </p>
+          </Link>
         ))}
       </div>
     </motion.nav>
