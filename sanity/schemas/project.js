@@ -33,10 +33,6 @@ export default {
           { title: "React", value: "react" },
           { title: "React Native", value: "react_native" },
           { title: "Node.js", value: "nodejs" },
-
-          // { title: "React", value: "react" },
-          // { title: "React", value: "react" },
-          // { title: "React", value: "react" },
         ],
       },
     },
