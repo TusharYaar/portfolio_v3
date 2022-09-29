@@ -16,7 +16,7 @@
     max-width: 540px;
     font-size: 24px;
     color: var(--text);
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .image {

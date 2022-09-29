@@ -19,10 +19,10 @@ const Layout = ({ children }: { children: JSX.Element }) => {
           <div className={styles.leftSide}>
             <div className={styles.fixedContainer}>
               <div className={styles.iconsContainer}>
-                <SocialIcons delay={1} />
+                {/* <SocialIcons delay={1} />
                 <SocialIcons delay={2} />
                 <SocialIcons delay={3} />
-                <SocialIcons delay={4} />
+                <SocialIcons delay={4} /> */}
               </div>
               <span>SOCIALS</span>
             </div>

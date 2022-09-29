@@ -1,21 +1,35 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import React, { useState } from "react";
 import styles from "../../styles/Experience.module.css";
 
 type Props = {
   experiences: {
-    _createdAt: Date;
+    _createdAt: string;
     _id: string;
     _type: string;
     _updatedAt: string;
     company: string;
     companyUrl: string;
-    stateDate: Date;
+    startDate: string;
     type: string;
     worksHere?: boolean;
-    endDate?: Date;
+    endDate?: string;
     description: string;
+    duration: string;
   }[];
+};
+
+const tabVariants: Variants = {
+  initial: {
+    backgroundColor: "transparent",
+    // color: "var(--text)",
+    opacity: 1,
+  },
+  active: {
+    backgroundColor: "var(--secondary)",
+    // color: "var(--accent)",
+    opacity: "0.6",
+  },
 };
 
 const Experience = ({ experiences }: Props) => {
@@ -25,20 +39,34 @@ const Experience = ({ experiences }: Props) => {
       <div className={styles.content}>
         <div className={styles.tabsContainer}>
           {experiences.map((item) => (
-            <div
-              className={`${styles.tab} ${item._id === active._id && styles.activeTab}`}
+            <motion.div
+              className={styles.tab}
               key={item._id}
               onClick={() => setActive(item)}
+              variants={tabVariants}
+              initial="initial"
+              whileHover="active"
             >
-              {item.company}
-            </div>
+              <span>{item.company}</span>
+              {item._id === active._id && <motion.div layoutId="sideline" className={styles.sideline} />}
+            </motion.div>
           ))}
         </div>
         <AnimatePresence mode="wait">
-          <motion.div key={active._id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <h3>{active.company}</h3>
+          <motion.div
+            className={styles.description}
+            key={active._id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className={styles.employment}>
+              {active.type}
+              <span className={styles.companyName}> @ {active.company}</span>
+            </h3>
+            <p className={styles.duration}>{active.duration}</p>
             <div dangerouslySetInnerHTML={{ __html: active.description }} />
-            {/* {active.description} */}
           </motion.div>
         </AnimatePresence>
       </div>

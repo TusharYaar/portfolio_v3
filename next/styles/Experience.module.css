@@ -2,34 +2,62 @@
     min-height:100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 .content {
     width: 100%;
-    max-width: 600px;
-    height: 40px;
-    background-color: violet;
+    max-width: 700px;
     display: flex;
     flex-direction: row;
 }
 .tabsContainer {
     display: flex;
-    min-width: 150px;
+    width: 190px;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
 }
 .tab {
-    padding: 20px;
-    background-color: azure;
+    padding:0px;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
 }
-
-.activeTab { 
-    background-color: brown;
+.tab span { 
+    padding: 20px;
 }
 
-.tab:hover {
-    cursor: pointer;
-    opacity: 0.5    ;
+.employment {
+    font-size: 24px;
+    color:(--text);
+}
+
+.companyName {
+    color:var(--secondary);
+}
+
+.description {
+    color: var(--text);
+    width: 100%;
+    padding: 10px;
+    padding-top: 0px;
+}
+.duration {
+    font-family: 'Cousine', monospace;
+    margin: 5px;
+}
+
+.description ul {
+    padding: 10px;
+}
+.description ul li {
+    margin: 10px;
+}
+
+
+
+
+.sideline {
+    width: 5px;
+    height: 100%;
+    background-color: var(--secondary);
 }

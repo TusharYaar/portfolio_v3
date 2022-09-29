@@ -8,6 +8,8 @@ import { createClient } from "next-sanity";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 
+import { format, getYear, parseISO } from "date-fns";
+
 const client = createClient({
   projectId: process.env.CMS_ID,
   dataset: process.env.CMS_DATASET,
@@ -34,11 +36,26 @@ type experience = {
   _updatedAt: string;
   company: string;
   companyUrl: string;
-  stateDate: Date;
+  startDate: string;
   type: string;
   worksHere?: boolean;
-  endDate?: Date;
+  endDate?: string;
   description: string;
+  duration: string;
+};
+
+const formatDate = (_startDate: string, _endDate?: string) => {
+  const startDate = parseISO(_startDate);
+  if (!_endDate) {
+    return `${format(startDate, "MMMM yyyy")} - Present`;
+  } else {
+    const endDate = parseISO(_endDate);
+    if (getYear(startDate) === getYear(endDate)) {
+      return `${format(startDate, "MMMM")} - ${format(endDate, "MMMM yyyy")}`;
+    } else {
+      return `${format(startDate, "MMMM yyyy")} - ${format(endDate, "MMMM yyyy")}`;
+    }
+  }
 };
 
 export async function getStaticProps() {
@@ -48,6 +65,7 @@ export async function getStaticProps() {
     experiences.map(async (exp) => ({
       ...exp,
       description: await parser.process(exp.description).then((file) => String(file)),
+      duration: formatDate(exp.startDate, exp.endDate),
     }))
   );
   return {
