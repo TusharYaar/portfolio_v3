@@ -33,9 +33,6 @@ export default {
       title: "Start Date",
       type: "date",
       validation: (Rule) => Rule.required(),
-      options: {
-        dateFormat: "DD-MM-YYYY",
-      },
     },
     {
       name: "worksHere",
@@ -48,9 +45,6 @@ export default {
       title: "End Date",
       type: "date",
       hidden: ({ document }) => document.worksHere,
-      options: {
-        dateFormat: "DD-MM-YYYY",
-      },
     },
     {
       name: "description",

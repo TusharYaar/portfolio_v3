@@ -39,17 +39,11 @@ export default {
       title: "Project Start Date",
       name: "startDate",
       type: "date",
-      options: {
-        dateFormat: "DD-MMM-YYYY",
-      },
     },
     {
       title: "Project End Date",
       name: "endDate",
       type: "date",
-      options: {
-        dateFormat: "DD-MMM-YYYY",
-      },
     },
     {
       title: "Featured",
