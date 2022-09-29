@@ -1,0 +1,25 @@
+.container {
+    min-height:100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.heading {
+    font-family: 'Cousine', monospace;
+    margin-top: 16px;
+    font-size: 24px;
+    color: var(--secondary);
+    font-weight: normal;
+}
+.paragraph {
+    margin-top: 40px;
+    max-width: 540px;
+    font-size: 24px;
+    color: var(--text);
+    text-align: justify;
+}
+
+.image {
+    max-width: 300px;
+    width: 100%;
+}

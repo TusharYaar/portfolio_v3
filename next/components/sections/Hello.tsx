@@ -26,7 +26,7 @@ const Hello = () => {
           Hello, my name is
         </motion.p>
         <motion.p className={styles.nameLine} variants={lineVariants} custom={1}>
-          Tushar S Agrawal.
+          Tushar.
         </motion.p>
         <motion.p className={styles.workLine} variants={lineVariants} custom={2}>
           I make <MotionUnderline>stuff</MotionUnderline> on the web

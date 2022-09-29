@@ -2,12 +2,18 @@
     box-sizing:border-box;
     margin: 0px;
     padding: 0px;
+
+}
+:root {
+    --primary: #1460b8;
+    --secondary:#28bebd;
+    --accent:#3885ba;
+    --text: #e5d2c4;
+    --background: #202125;
 }
 
 body {
     font-family: 'Albert Sans', sans-serif;
-    /* background-color: #010202; */
-    background-color: #202125;
-
+    background-color: var(--background);
   }
   

@@ -1,0 +1,35 @@
+.container {
+    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    background-color: violet;
+    display: flex;
+    flex-direction: row;
+}
+.tabsContainer {
+    display: flex;
+    min-width: 150px;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+}
+.tab {
+    padding: 20px;
+    background-color: azure;
+    width: 100%;
+}
+
+.activeTab { 
+    background-color: brown;
+}
+
+.tab:hover {
+    cursor: pointer;
+    opacity: 0.5    ;
+}
