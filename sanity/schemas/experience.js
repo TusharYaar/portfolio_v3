@@ -19,6 +19,12 @@ export default {
       name: "type",
       title: "Employment Type",
       type: "string",
+      default: "",
+    },
+    {
+      name: "role",
+      title: "Role",
+      type: "string",
       validation: (Rule) => Rule.required(),
     },
     {
