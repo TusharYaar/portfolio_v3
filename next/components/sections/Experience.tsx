@@ -1,22 +1,21 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import React, { useState } from "react";
-import styles from "../../styles/Experience.module.css";
+import styles from "../../styles/sections/Experience.module.css";
 
-type Props = {
-  experiences: {
-    _createdAt: string;
-    _id: string;
-    _type: string;
-    _updatedAt: string;
-    company: string;
-    companyUrl: string;
-    startDate: string;
-    type: string;
-    worksHere?: boolean;
-    endDate?: string;
-    description: string;
-    duration: string;
-  }[];
+export type ExperienceObject = {
+  _createdAt: string;
+  _id: string;
+  _type: string;
+  _updatedAt: string;
+  company: string;
+  companyUrl: string;
+  startDate: string;
+  role: string;
+  type: string;
+  worksHere?: boolean;
+  endDate?: string;
+  description: string;
+  duration: string;
 };
 
 const tabVariants: Variants = {
@@ -32,7 +31,7 @@ const tabVariants: Variants = {
   },
 };
 
-const Experience = ({ experiences }: Props) => {
+const Experience = ({ experiences }: { experiences: ExperienceObject[] }) => {
   const [active, setActive] = useState(experiences[experiences.length - 1]);
   return (
     <div className={styles.container}>

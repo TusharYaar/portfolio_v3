@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "./Container";
 import Header from "./Header";
 
 import useMobileView from "../hooks/useMobileView";
@@ -14,7 +13,7 @@ const Layout = ({ children }: { children: JSX.Element }) => {
   return (
     <>
       {isMobileView ? <MobileHeader /> : <Header />}
-      <div className={styles.container}>
+      <div className={styles.pageContainer}>
         {!isMobileView && (
           <div className={styles.leftSide}>
             <div className={styles.fixedContainer}>
@@ -28,7 +27,7 @@ const Layout = ({ children }: { children: JSX.Element }) => {
             </div>
           </div>
         )}
-        <Container>{children}</Container>
+        <div className={styles.container}>{children}</div>
         {!isMobileView && (
           <div className={styles.rightSide}>
             <span>WEB&nbsp;DEVELOPER</span>

@@ -20,13 +20,6 @@ export default {
       title: "Employment Type",
       type: "string",
       validation: (Rule) => Rule.required(),
-      options: {
-        list: [
-          { title: "Internship", value: "internship" },
-          { title: "Full-Time Employee", value: "employee" },
-        ],
-      },
-      initialValue: "employee",
     },
     {
       name: "startDate",

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import styles from "../../styles/AboutMe.module.css";
+import styles from "../../styles/sections/AboutMe.module.css";
 import image from "../../assets/profilepic2.jpeg";
 
 const AboutMe = () => {

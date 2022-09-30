@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
 import Hello from "../components/sections/Hello";
 import AboutMe from "../components/sections/AboutMe";
-import Experience from "../components/sections/Experience";
+import Experience, { ExperienceObject } from "../components/sections/Experience";
 
 import { createClient } from "next-sanity";
 
@@ -17,8 +16,7 @@ const client = createClient({
   useCdn: Boolean(process.env.CMS_USE_CDN),
 });
 
-const Home: NextPage = ({ experiences }: any) => {
-  console.log(experiences);
+const Home = ({ experiences }: { experiences: ExperienceObject[] }) => {
   return (
     <>
       <Hello />
@@ -59,7 +57,7 @@ const formatDate = (_startDate: string, _endDate?: string) => {
 };
 
 export async function getStaticProps() {
-  let experiences = (await client.fetch(`*[_type == "experience"] | order(startDate asc)`)) as experience[];
+  let experiences = (await client.fetch(`*[_type == "experience"] | order(startDate asc)`)) as ExperienceObject[];
   const parser = remark().use(remarkHtml);
   experiences = await Promise.all(
     experiences.map(async (exp) => ({

@@ -1,9 +1,10 @@
+/* Global Styles */
 *{
     box-sizing:border-box;
     margin: 0px;
     padding: 0px;
-
 }
+
 :root {
     --primary: #1460b8;
     --secondary:#28bebd;
@@ -15,5 +16,4 @@
 body {
     font-family: 'Albert Sans', sans-serif;
     background-color: var(--background);
-  }
-  
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Hello.module.css";
+import styles from "../../styles/sections/Hello.module.css";
 
 import { motion, Variants } from "framer-motion";
 import MotionUnderline from "../MotionCircle";

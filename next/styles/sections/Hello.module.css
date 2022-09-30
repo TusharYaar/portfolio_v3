@@ -1,0 +1,32 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: "flex-start";
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+p.codeLine {
+    font-family: 'Cousine', monospace;
+    margin-top: 16px;
+    font-size: 24px;
+    color: var(--secondary);
+}
+p.nameLine {
+    font-weight: bold;
+    font-size: 72px;
+    color: var(--primary);
+}
+p.workLine {
+    font-weight: bold;
+    font-size: 56px;
+    color: var(--accent);
+
+}
+.brief {
+    margin-top: 40px;
+    max-width: 540px;
+    font-size: 24px;
+    color: var(--text);
+}
