@@ -1,0 +1,67 @@
+.container {
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
+.reverse {
+    flex-direction: row-reverse;
+}
+
+.imageContainer {
+    max-width: 500px;
+    position: relative;
+    flex: 1;
+    margin: 20px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    transform: rotate(2deg);
+}
+
+.imageBackground {
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent);
+    transform: rotate(-2deg);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:var(--text);
+    flex: 1;
+    padding: 10px;
+}
+
+.projectTitle {
+    font-size: 46px;
+}
+.projectStack {
+    display: flex;
+    flex-direction: row;
+    width: 100%;    
+}
+.projectStack span {
+    margin-left:10px;
+    font-family: 'Cousine', monospace;
+    font: 10px;
+    color: #c4c4c4;
+}
+.projectStack span:first-child  {
+    margin : 0px;
+}
+
+
+.projectDescription {
+    flex-grow: 1;
+    margin-top: 10px;
+}

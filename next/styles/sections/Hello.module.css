@@ -17,6 +17,10 @@ p.nameLine {
     font-weight: bold;
     font-size: 72px;
     color: var(--primary);
+    background: -webkit-linear-gradient(135deg, #b8406e 80%, var(--secondary));
+    background-clip:content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 p.workLine {
     font-weight: bold;

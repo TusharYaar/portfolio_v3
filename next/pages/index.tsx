@@ -1,8 +1,10 @@
 import Hello from "../components/sections/Hello";
 import AboutMe from "../components/sections/AboutMe";
 import Experience, { ExperienceObject } from "../components/sections/Experience";
+import FeaturedProjectSection, { ProjectDocument } from "../components/sections/FeaturedProjectSection";
 
 import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
 
 import { remark } from "remark";
 import remarkHtml from "remark-html";
@@ -15,32 +17,26 @@ const client = createClient({
   apiVersion: process.env.CMS_API_VERSION,
   useCdn: Boolean(process.env.CMS_USE_CDN),
 });
+const builder = imageUrlBuilder(client);
 
-const Home = ({ experiences }: { experiences: ExperienceObject[] }) => {
+const Home = ({
+  experiences,
+  featuredProjects,
+}: {
+  experiences: ExperienceObject[];
+  featuredProjects: ProjectDocument[];
+}) => {
   return (
     <>
       <Hello />
       <AboutMe />
       <Experience experiences={experiences} />
+      <FeaturedProjectSection projects={featuredProjects} />
     </>
   );
 };
 
 export default Home;
-type experience = {
-  _createdAt: Date;
-  _id: string;
-  _type: string;
-  _updatedAt: string;
-  company: string;
-  companyUrl: string;
-  startDate: string;
-  type: string;
-  worksHere?: boolean;
-  endDate?: string;
-  description: string;
-  duration: string;
-};
 
 const formatDate = (_startDate: string, _endDate?: string) => {
   const startDate = parseISO(_startDate);
@@ -58,6 +54,8 @@ const formatDate = (_startDate: string, _endDate?: string) => {
 
 export async function getStaticProps() {
   let experiences = (await client.fetch(`*[_type == "experience"] | order(startDate asc)`)) as ExperienceObject[];
+  let allProjects = (await client.fetch(`*[_type == "project"] | order(endDate desc)`)) as ProjectDocument[];
+
   const parser = remark().use(remarkHtml);
   experiences = await Promise.all(
     experiences.map(async (exp) => ({
@@ -66,9 +64,21 @@ export async function getStaticProps() {
       duration: formatDate(exp.startDate, exp.endDate),
     }))
   );
+
+  allProjects = await Promise.all(
+    allProjects.map(async (project) => ({
+      ...project,
+      imageUrl: builder.image(project.image).url(),
+      description: await parser.process(project.description).then((file) => String(file)),
+    }))
+  );
+
+  const featuredProjects = allProjects.filter((project) => project.featured);
   return {
     props: {
       experiences,
+      allProjects,
+      featuredProjects,
     },
   };
 }

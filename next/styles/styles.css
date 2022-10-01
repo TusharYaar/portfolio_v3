@@ -10,7 +10,10 @@
     --secondary:#28bebd;
     --accent:#3885ba;
     --text: #fdfdfd;
-    --background: #202125;
+    /* --background: #202125; */
+    --background: #131224;
+
+    
 }
 
 body {

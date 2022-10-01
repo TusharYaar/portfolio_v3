@@ -1,8 +1,8 @@
 .container {
-    min-height:100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin: 100px auto;
 }
 .content {
     width: 100%;
@@ -20,7 +20,13 @@
     padding:0px;
     display: flex;
     justify-content: space-between;
+    color:var(--text);
     width: 100%;
+}
+.tab:hover {
+    color: var(--secondary);
+    background-color: var(--accent);
+    opacity: 0.6;
 }
 .tab span { 
     padding: 20px;
