@@ -53,7 +53,7 @@
 .projectStack span {
     margin-left:10px;
     font-family: 'Cousine', monospace;
-    font: 10px;
+    font-size: 14px;
     color: #c4c4c4;
 }
 .projectStack span:first-child  {

@@ -10,9 +10,9 @@ const MotionCircle = ({ children }: { children: React.ReactNode }) => {
       <motion.svg
         className={styles.underline}
         fill="none"
-        height="auto"
+        height="100%"
         viewBox="0 0 761 402"
-        width="auto"
+        width="100%"
         xmlns="http://www.w3.org/2000/svg"
       >
         <motion.path

@@ -10,6 +10,7 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 
 import { format, getYear, parseISO } from "date-fns";
+import RecentProjectSection from "../components/sections/RecentProjectSection";
 
 const client = createClient({
   projectId: process.env.CMS_ID,
@@ -22,9 +23,11 @@ const builder = imageUrlBuilder(client);
 const Home = ({
   experiences,
   featuredProjects,
+  allProjects,
 }: {
   experiences: ExperienceObject[];
   featuredProjects: ProjectDocument[];
+  allProjects: ProjectDocument[];
 }) => {
   return (
     <>
@@ -32,6 +35,7 @@ const Home = ({
       <AboutMe />
       <Experience experiences={experiences} />
       <FeaturedProjectSection projects={featuredProjects} />
+      <RecentProjectSection projects={allProjects} />
     </>
   );
 };
@@ -74,6 +78,8 @@ export async function getStaticProps() {
   );
 
   const featuredProjects = allProjects.filter((project) => project.featured);
+  allProjects = allProjects.filter((project) => !project.featured).slice(0, 6);
+
   return {
     props: {
       experiences,

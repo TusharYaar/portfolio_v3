@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #121212;
+    color: var(--text);
+    padding: 10px;
+    border-radius: var(--border-radius);
+}
+
+.projectTitle {
+    font-size: 24px;
+}
+.projectStack {
+    display: flex;
+    flex-direction: row;
+    width: 100%;    
+}
+.projectStack span {
+    margin-left:10px;
+    font-family: 'Cousine', monospace;
+    font-size: 12px;
+    color: #c4c4c4;
+}
+.projectStack span:first-child  {
+    margin : 0px;
+}
+.projectDescription {
+    flex: 1;
+    margin: 10px 0px;
+}
