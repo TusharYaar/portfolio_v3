@@ -52,6 +52,12 @@ export default {
       default: false,
     },
     {
+      name: "brief",
+      title: "Brief",
+      type: "markdown",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "description",
       title: "Description",
       type: "markdown",
