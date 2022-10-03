@@ -10,7 +10,6 @@
     --secondary:#28bebd;
     --accent:#3885ba;
     --text: #fdfdfd;
-    /* --background: #202125; */
     --background: #131224;
     --border-radius: 2px;
 
@@ -20,4 +19,19 @@
 body {
     font-family: 'Albert Sans', sans-serif;
     background-color: var(--background);
+}
+
+html {
+    scrollbar-color: var(--secondary) var(--background);
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+body::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+body::-webkit-scrollbar-thumb {
+    background: var(--secondary);
 }

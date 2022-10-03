@@ -11,6 +11,7 @@ import remarkHtml from "remark-html";
 
 import { format, getYear, parseISO } from "date-fns";
 import RecentProjectSection from "../components/sections/RecentProjectSection";
+import ContactSection from "../components/sections/ContactSection";
 
 const client = createClient({
   projectId: process.env.CMS_ID,
@@ -36,6 +37,7 @@ const Home = ({
       <Experience experiences={experiences} />
       <FeaturedProjectSection projects={featuredProjects} />
       <RecentProjectSection projects={allProjects} />
+      <ContactSection />
     </>
   );
 };
@@ -78,7 +80,10 @@ export async function getStaticProps() {
   );
 
   const featuredProjects = allProjects.filter((project) => project.featured);
-  allProjects = allProjects.filter((project) => !project.featured).slice(0, 6);
+  allProjects = allProjects
+    .filter((project) => !project.featured)
+    .slice(0, 6)
+    .map((pro) => ({ ...pro, stack: pro.stack.slice(0, 4) }));
 
   return {
     props: {

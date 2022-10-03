@@ -21,6 +21,7 @@ export type ProjectDocument = {
   title: string;
   url: string;
   description: string;
+  brief: string;
 };
 
 const FeaturedProjectSection = ({ projects }: { projects: ProjectDocument[] }) => {

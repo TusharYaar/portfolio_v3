@@ -1,0 +1,14 @@
+.container {
+margin-top: 40px;
+}
+
+.header {
+        font-size: 48px;
+    color: var(--text);
+}
+.contentContainer {
+    display: flex;
+    width: 100%;
+    background-color: blueviolet;
+    
+}
