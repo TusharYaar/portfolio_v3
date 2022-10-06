@@ -8,6 +8,7 @@ import styles from "../styles/Layout.module.css";
 import useGreaterThanView from "../hooks/useGreaterThanView";
 import LeftBar from "./LeftBar";
 import RightBar from "./RightBar";
+import Footer from "./Footer";
 
 const Layout = ({ children }: { children: JSX.Element }) => {
   const isMobileView = useMobileView();
@@ -18,7 +19,10 @@ const Layout = ({ children }: { children: JSX.Element }) => {
       {isMobileView ? <MobileHeader /> : <Header />}
       <div className={styles.pageContainer}>
         {!isMobileView && <LeftBar />}
-        <div className={styles.container}>{children}</div>
+        <div>
+          <div className={styles.container}>{children}</div>
+          <Footer />
+        </div>
         {isGreaterView[1] && <RightBar />}
       </div>
     </>
