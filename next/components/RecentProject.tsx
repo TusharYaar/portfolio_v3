@@ -15,7 +15,7 @@ const variants: Variants = {
   },
   hover: {
     color: "var(--secondary)",
-    y: -10,
+    y: -5,
     transition: {
       color: {
         duration: 0.3,

@@ -12,13 +12,16 @@
     --accent:#3885ba;
     --text: #fdfdfd;
     --background: #131224;
+    --background-dark: #0f0e1d;
     --border-radius: 2px;
+    --code-font: 'Cousine', monospace;
+    --primary-font : 'Albert Sans', sans-serif;
 
     
 }
 
 body {
-    font-family: 'Albert Sans', sans-serif;
+    font-family: var(--primary-font);
     background-color: var(--background);
 }
 
