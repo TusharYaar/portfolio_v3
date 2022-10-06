@@ -13,6 +13,7 @@ import { format, getYear, parseISO } from "date-fns";
 import RecentProjectSection from "../components/sections/RecentProjectSection";
 import ContactSection from "../components/sections/ContactSection";
 import Head from "next/head";
+import ProjectSection from "../components/sections/ProjectSection";
 
 const client = createClient({
   projectId: process.env.CMS_ID,
@@ -39,8 +40,7 @@ const Home = ({
       <Hello />
       <AboutMe />
       <Experience experiences={experiences} />
-      <FeaturedProjectSection projects={featuredProjects} />
-      <RecentProjectSection projects={allProjects} />
+      <ProjectSection featuredProjects={featuredProjects} projects={allProjects} />
       <ContactSection />
     </>
   );
