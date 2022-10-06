@@ -27,7 +27,7 @@ export type ProjectDocument = {
 const FeaturedProjectSection = ({ projects }: { projects: ProjectDocument[] }) => {
   return (
     <div>
-      <h3>Projects I proudly showcase</h3>
+      <h3 className={styles.header}>Projects I proudly showcase</h3>
       <div>
         {projects.map((project, index) => (
           <FeaturedProject project={project} key={project._id} reverse={index % 2 == 0} />

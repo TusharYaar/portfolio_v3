@@ -19,7 +19,7 @@ const Layout = ({ children }: { children: JSX.Element }) => {
       {isMobileView ? <MobileHeader /> : <Header />}
       <div className={styles.pageContainer}>
         {!isMobileView && <LeftBar />}
-        <div>
+        <div className={styles.footerContainer}>
           <div className={styles.container}>{children}</div>
           <Footer />
         </div>

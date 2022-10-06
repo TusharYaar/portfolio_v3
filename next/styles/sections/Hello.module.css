@@ -1,7 +1,7 @@
 .container {
-    min-height: 100vh;
+    min-height: calc(90vh - 70px);
     display: flex;
-    align-items: "flex-start";
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     padding: 10px;
@@ -17,7 +17,7 @@ p.nameLine {
     font-weight: bold;
     font-size: 72px;
     color: var(--primary);
-    background: -webkit-linear-gradient(135deg, #ff9202 80%, var(--secondary));
+    background: -webkit-linear-gradient(135deg, #d1831e 60%, var(--secondary));
     background-clip:content-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
