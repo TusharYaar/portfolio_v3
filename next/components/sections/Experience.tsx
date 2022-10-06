@@ -42,7 +42,9 @@ const Experience = ({ experiences }: { experiences: ExperienceObject[] }) => {
           >
             <h3 className={styles.employment}>
               {active.role}
-              <span className={styles.companyName}> @ {active.company}</span>
+              <a className={styles.companyName} href={active.companyUrl} target="_blank" rel="noreferrer">
+                {`@ ${active.company}`}
+              </a>
             </h3>
             <p className={styles.duration}>{active.duration}</p>
             <div dangerouslySetInnerHTML={{ __html: active.description }} />

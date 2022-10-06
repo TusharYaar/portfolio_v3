@@ -5,34 +5,21 @@ import useMobileView from "../hooks/useMobileView";
 import MobileHeader from "./MobileHeader";
 
 import styles from "../styles/Layout.module.css";
-import SocialIcons from "./SocialIcons";
+import useGreaterThanView from "../hooks/useGreaterThanView";
+import LeftBar from "./LeftBar";
+import RightBar from "./RightBar";
 
 const Layout = ({ children }: { children: JSX.Element }) => {
   const isMobileView = useMobileView();
+  const isGreaterView = useGreaterThanView([576, 768, 992]);
 
   return (
     <>
       {isMobileView ? <MobileHeader /> : <Header />}
       <div className={styles.pageContainer}>
-        {!isMobileView && (
-          <div className={styles.leftSide}>
-            <div className={styles.fixedContainer}>
-              <div className={styles.iconsContainer}>
-                {/* <SocialIcons delay={1} />
-                <SocialIcons delay={2} />
-                <SocialIcons delay={3} />
-                <SocialIcons delay={4} /> */}
-              </div>
-              <span>SOCIALS</span>
-            </div>
-          </div>
-        )}
+        {!isMobileView && <LeftBar />}
         <div className={styles.container}>{children}</div>
-        {!isMobileView && (
-          <div className={styles.rightSide}>
-            <span>WEB&nbsp;DEVELOPER</span>
-          </div>
-        )}
+        {isGreaterView[1] && <RightBar />}
       </div>
     </>
   );

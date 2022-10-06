@@ -12,6 +12,7 @@ import remarkHtml from "remark-html";
 import { format, getYear, parseISO } from "date-fns";
 import RecentProjectSection from "../components/sections/RecentProjectSection";
 import ContactSection from "../components/sections/ContactSection";
+import Head from "next/head";
 
 const client = createClient({
   projectId: process.env.CMS_ID,
@@ -32,6 +33,9 @@ const Home = ({
 }) => {
   return (
     <>
+      <Head>
+        <title>Tushar Agrawal</title>
+      </Head>
       <Hello />
       <AboutMe />
       <Experience experiences={experiences} />

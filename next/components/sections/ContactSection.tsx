@@ -24,9 +24,21 @@ const ContactSection = () => {
         <div>I would love to hear from you.</div>
         <div className={styles.formContainer}>
           <form onSubmit={onClickSubmit}>
-            {/* <input name="name" value={form.name} onChange={handleOnChange} /> */}
-            {/* <input name="email" value={form.email} onChange={handleOnChange} /> */}
-            {/* <input name="description" value={form.description} onChange={handleOnChange} /> */}
+            <input name="name" value={form.name} type="text" placeholder="John Smith" onChange={handleOnChange} />
+            <input
+              name="email"
+              value={form.email}
+              type="text"
+              placeholder="jooohn@mail.com"
+              onChange={handleOnChange}
+            />
+            <input
+              name="description"
+              value={form.description}
+              type="text"
+              placeholder="Can you make an app for me"
+              onChange={handleOnChange}
+            />
           </form>
         </div>
       </div>

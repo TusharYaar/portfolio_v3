@@ -8,6 +8,7 @@
 :root {
     --primary: #1460b8;
     --secondary:#28bebd;
+    --secondary-low-opacity: #28bebda9;
     --accent:#3885ba;
     --text: #fdfdfd;
     --background: #131224;
@@ -27,7 +28,7 @@ html {
 }
 
 body::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
   }
 body::-webkit-scrollbar-track {
     background: var(--background);
