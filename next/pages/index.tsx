@@ -1,7 +1,6 @@
 import Hello from "../components/sections/Hello";
 import AboutMe from "../components/sections/AboutMe";
 import Experience, { ExperienceObject } from "../components/sections/Experience";
-import FeaturedProjectSection, { ProjectDocument } from "../components/sections/FeaturedProjectSection";
 
 import { createClient } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
@@ -10,10 +9,9 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 
 import { format, getYear, parseISO } from "date-fns";
-import RecentProjectSection from "../components/sections/RecentProjectSection";
 import ContactSection from "../components/sections/ContactSection";
 import Head from "next/head";
-import ProjectSection from "../components/sections/ProjectSection";
+import ProjectSection, { ProjectDocument } from "../components/sections/ProjectSection";
 
 const client = createClient({
   projectId: process.env.CMS_ID,

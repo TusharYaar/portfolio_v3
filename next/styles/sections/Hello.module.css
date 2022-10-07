@@ -15,7 +15,7 @@ p.codeLine {
 }
 p.nameLine {
     font-weight: bold;
-    font-size: 72px;
+    font-size: 64px;
     color: var(--primary);
     background: -webkit-linear-gradient(135deg, #d1831e 60%, var(--secondary));
     background-clip:content-box;
@@ -24,13 +24,45 @@ p.nameLine {
 }
 p.workLine {
     font-weight: bold;
-    font-size: 56px;
+    font-size: 48px;
     color: var(--accent);
 
 }
 .brief {
     margin-top: 40px;
     max-width: 540px;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--text);
+}
+
+
+@media (min-width: 992px) {
+    p.codeLine {
+        font-size: 24px;
+    }
+    p.nameLine {
+        font-size: 72px;
+    }
+    p.workLine {
+        font-size: 56px;
+    }
+    .brief {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1400px) {
+    p.codeLine {
+        font-size: 32px;
+    }
+    p.nameLine {
+        font-size: 80px;
+    }
+    p.workLine {
+        font-size: 64px;
+    }
+    .brief {
+        font-size: 32px;
+        max-width: 772px;
+    }
 }
