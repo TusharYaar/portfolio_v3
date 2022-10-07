@@ -1,12 +1,15 @@
 .container {
     width: 100%;
-    margin: 20px;
+    margin: 20px 0px;
+    padding: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-end;
 
 }
 .reverse {
-    flex-direction: row-reverse;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .imageContainer {
@@ -44,22 +47,21 @@
 }
 
 .projectTitle {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 500;
 }
 .projectStack {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;    
 }
 .projectStack span {
-    margin-left:10px;
+    margin-right:10px;
+    margin-top: 5px;
     font-family: var(--code-font);
     font-size: 14px;
     color: #c4c4c4;
-}
-.projectStack span:first-child  {
-    margin : 0px;
 }
 
 
@@ -67,3 +69,22 @@
     flex-grow: 1;
     margin-top: 10px;
 }
+
+@media (min-width: 576px) {
+    .projectTitle {
+        font-size: 40px;
+        font-weight: 500;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        margin: 20px;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .reverse {
+        flex-direction: row-reverse;
+    }
+}
+

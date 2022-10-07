@@ -1,9 +1,11 @@
 .container {
     margin: 100px 0px;
+    padding: 10px;
 }
 .header {
-    font-size: 48px;
+    font-size: 40px;
     color: var(--text);
+    font-weight: 600;
 }
 
 .recentProjectSection {
@@ -19,6 +21,33 @@
 .recentProjectContainer {
     display: grid;
     gap: 20px;
-    grid-template-columns: 33.34% 33.33% 33.33%;
+    grid-template-columns: 100%;
     padding: 20px;
+}
+
+@media (min-width: 576px) {
+    .recentProjectContainer {
+        grid-template-columns: 50% 50%;
+    } 
+}
+
+@media (min-width: 768px) {
+    .header {
+        font-size: 48px;
+        color: var(--text);
+    }
+}
+
+@media (min-width: 992px) {
+    .recentProjectContainer {
+        grid-template-columns: 33.34% 33.33% 33.33%;
+    } 
+}
+
+@media (min-width: 1200px) {
+ 
+}
+
+@media (min-width: 1400px) {
+    
 }
