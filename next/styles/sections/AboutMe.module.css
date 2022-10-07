@@ -5,9 +5,9 @@
     align-items: center;
 }
 .heading {
-    font-family: 'Cousine', monospace;
+    font-family: var(--code-font);
     margin-top: 16px;
-    font-size: 24px;
+    font-size: 32px;
     color: var(--secondary);
     font-weight: normal;
 }
@@ -22,4 +22,5 @@
 .image {
     max-width: 300px;
     width: 100%;
+    border-radius: var(--border-radius);
 }

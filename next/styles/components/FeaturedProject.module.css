@@ -25,13 +25,14 @@
 .imageBackground {
     width: 100%;
     height: 100%;
-    background-color: var(--accent);
-    transform: rotate(-2deg);
+    background-color: var(--secondary-low-opacity);
+    transform: rotate(-6deg);
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: 0;
 }
+
 
 .content {
     display: flex;
