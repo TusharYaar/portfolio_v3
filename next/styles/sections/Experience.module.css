@@ -75,16 +75,16 @@
     }
 
 .description a::after{
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 1px;
-        bottom: 0px;
-        left: 0px;
-        background-color: var(--secondary);
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0px;
+    left: 0px;
+    background-color: var(--secondary);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 a.companyName:after {
     height: 2px;
@@ -131,16 +131,4 @@ a.companyName:after {
     .tabsContainer {
         width: 190px;
     }
-}
-
-@media (min-width: 992px) {
-    
-}
-
-@media (min-width: 1200px) {
-    
-}
-
-@media (min-width: 1400px) {
-    
 }
