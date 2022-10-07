@@ -6,7 +6,7 @@ const checkWidth = (width: number, values: number[]) => {
 
 const useGreaterThanView = (width: number[]) => {
   const [state, setState] = useState<boolean[]>(
-    typeof window === "undefined" ? [true, true, true] : checkWidth(window.innerWidth, width)
+    typeof window === "undefined" ? [].fill(true, 0, width.length) : checkWidth(window.innerWidth, width)
   );
 
   useEffect(() => {
