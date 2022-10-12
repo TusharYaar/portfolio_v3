@@ -1,0 +1,71 @@
+.backdrop {
+    position: fixed;
+    background-color: var(--background-dark);
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.crossContainer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px; 
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+}
+
+.iconsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-right: 2px solid var(--secondary) ;
+    padding-right:10px ;
+}
+.iconsContainer a {
+    margin: 10px 0px; 
+}
+
+.sectionContainer {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* background-color: antiquewhite; */
+    margin:auto;
+}
+.sectionContainer p {
+    padding: 10px;
+    font-family: var(--primary-font);
+    color: var(--secondary);
+    font-size: 36px;
+}
+.sectionContainer p span {
+   font-family: var(--code-font);
+}
+
+.navbar {
+    background-color: var(--background);
+    position: fixed;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 15;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}

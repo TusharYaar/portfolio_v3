@@ -1,11 +1,11 @@
 import Image from "next/image";
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "../../styles/sections/AboutMe.module.css";
 import image from "../../assets/profilepic2.jpeg";
 
-const AboutMe = () => {
+const AboutMe = forwardRef<HTMLDivElement>((props, ref) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <div>
         <h3 className={styles.heading}>Who am I?</h3>
         <p className={styles.paragraph}>
@@ -20,6 +20,7 @@ const AboutMe = () => {
       </div>
     </div>
   );
-};
+});
+AboutMe.displayName = "AboutMe";
 
 export default AboutMe;

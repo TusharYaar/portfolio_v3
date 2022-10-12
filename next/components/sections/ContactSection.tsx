@@ -1,4 +1,4 @@
-import React, { FormEvent, useCallback, useState } from "react";
+import React, { FormEvent, forwardRef, useCallback, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import styles from "../../styles/sections/ContactSection.module.css";
 
@@ -24,7 +24,7 @@ const iconVariant: Variants = {
   },
 };
 
-const ContactSection = () => {
+const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [form, setform] = useState({
     name: "",
     email: "",
@@ -41,7 +41,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <h3 className={styles.header}>Get In Touch</h3>
       <div className={styles.contentContainer}>
         <p className={styles.phrase}>I would love to hear from you.</p>
@@ -98,6 +98,7 @@ const ContactSection = () => {
       </div>
     </div>
   );
-};
+});
 
+ContactSection.displayName = "ContactSection";
 export default ContactSection;
