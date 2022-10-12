@@ -2,11 +2,7 @@ import React from "react";
 import styles from "../styles/components/Header.module.css";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
-
-type Sections = {
-  name: string;
-  link: string;
-};
+import { sections } from "./sections/sections";
 
 const navbarVariants: Variants = {
   hidden: {
@@ -41,30 +37,7 @@ const svgVariants: Variants = {
   },
 };
 
-const sections: Sections[] = [
-  {
-    name: "About",
-    link: "#about",
-  },
-  {
-    name: "Skills",
-    link: "#",
-  },
-  {
-    name: "Experience",
-    link: "#",
-  },
-  {
-    name: "Projects",
-    link: "#",
-  },
-  {
-    name: "Contact",
-    link: "#",
-  },
-];
-
-const Header = () => {
+const Header = ({ onClick }: { onClick: (id: string) => void }) => {
   return (
     <motion.nav className={styles.navbar} variants={navbarVariants} initial="hidden" animate="visible">
       <motion.svg
@@ -99,11 +72,9 @@ const Header = () => {
       </motion.svg>
       <div className={styles.sections}>
         {sections.map((item, index) => (
-          <Link href={item.link} key={item.name}>
-            <p>
-              <span>{index}.</span> {item.name}
-            </p>
-          </Link>
+          <p key={item.id} onClick={() => onClick(item.id)}>
+            <span>{index}.</span> {item.name}
+          </p>
         ))}
       </div>
     </motion.nav>

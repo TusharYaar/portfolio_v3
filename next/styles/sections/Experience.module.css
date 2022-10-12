@@ -1,10 +1,18 @@
 .container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: flex-start;
-    margin: 100px auto;
+    /* margin: 100px auto; */
     overflow: hidden;
+    min-height: 100vh;
 
+}
+.heading {
+    color: var(--text);
+    font-family: var(--primary-font);
+    margin: 50px 10px 20px 10px;
+    font-size: 30px;
 }
 .content {
     width: 100%;
@@ -130,5 +138,8 @@ a.companyName:after {
 @media (min-width: 768px) {
     .tabsContainer {
         width: 190px;
+    }
+    .heading {
+        font-size: 48px;
     }
 }

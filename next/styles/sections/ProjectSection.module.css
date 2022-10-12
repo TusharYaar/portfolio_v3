@@ -1,6 +1,6 @@
-.container {
-    margin: 100px 0px;
+.container { 
     padding: 10px;
+    padding-top: 100px;
 }
 .header {
     font-size: 40px;

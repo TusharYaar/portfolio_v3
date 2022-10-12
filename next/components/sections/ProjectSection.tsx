@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styles from "../../styles/sections/ProjectSection.module.css";
 import FeaturedProject from "../FeaturedProject";
 import RecentProject from "../RecentProject";
@@ -24,15 +24,15 @@ export type ProjectDocument = {
   brief: string;
 };
 
-const ProjectSection = ({
-  featuredProjects,
-  projects,
-}: {
-  featuredProjects: ProjectDocument[];
-  projects: ProjectDocument[];
-}) => {
+const ProjectSection = forwardRef<
+  HTMLDivElement,
+  {
+    featuredProjects: ProjectDocument[];
+    projects: ProjectDocument[];
+  }
+>(({ featuredProjects, projects }, ref) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <h3 className={styles.header}>Projects I proudly showcase</h3>
       <div className={styles.featureProjectContainer}>
         {featuredProjects.map((project, index) => (
@@ -49,6 +49,7 @@ const ProjectSection = ({
       </div>
     </div>
   );
-};
+});
 
+ProjectSection.displayName = "ProjectSection";
 export default ProjectSection;

@@ -12,6 +12,8 @@ import { format, getYear, parseISO } from "date-fns";
 import ContactSection from "../components/sections/ContactSection";
 import Head from "next/head";
 import ProjectSection, { ProjectDocument } from "../components/sections/ProjectSection";
+import Layout from "../components/Layout";
+import { useCallback, useRef } from "react";
 
 const client = createClient({
   projectId: process.env.CMS_ID,
@@ -30,17 +32,33 @@ const Home = ({
   featuredProjects: ProjectDocument[];
   allProjects: ProjectDocument[];
 }) => {
+  const helloRef = useRef(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const expRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const handleNavigation = useCallback((id: string) => {
+    console.log(id);
+    if (id === "about" && aboutRef.current) aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "projects" && projectRef.current) projectRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "contact" && contactRef.current) contactRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "experience" && expRef.current) expRef.current.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   return (
-    <>
-      <Head>
-        <title>Tushar Agrawal</title>
-      </Head>
-      <Hello />
-      <AboutMe />
-      <Experience experiences={experiences} />
-      <ProjectSection featuredProjects={featuredProjects} projects={allProjects} />
-      <ContactSection />
-    </>
+    <Layout handleNavigation={handleNavigation}>
+      <>
+        <Head>
+          <title>Tushar Agrawal</title>
+        </Head>
+        <Hello />
+        <AboutMe ref={aboutRef} />
+        <Experience experiences={experiences} ref={expRef} />
+        <ProjectSection featuredProjects={featuredProjects} projects={allProjects} ref={projectRef} />
+        <ContactSection ref={contactRef} />
+      </>
+    </Layout>
   );
 };
 

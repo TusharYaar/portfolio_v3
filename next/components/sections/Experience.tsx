@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import styles from "../../styles/sections/Experience.module.css";
 
 export type ExperienceObject = {
@@ -18,10 +18,11 @@ export type ExperienceObject = {
   duration: string;
 };
 
-const Experience = ({ experiences }: { experiences: ExperienceObject[] }) => {
+const Experience = forwardRef<HTMLDivElement, { experiences: ExperienceObject[] }>(({ experiences }, ref) => {
   const [active, setActive] = useState(experiences[experiences.length - 1]);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
+      <h3 className={styles.heading}>Place I&apos;ve Worked..</h3>
       <div className={styles.content}>
         <div className={styles.tabsContainer}>
           {experiences.map((item) => (
@@ -53,6 +54,8 @@ const Experience = ({ experiences }: { experiences: ExperienceObject[] }) => {
       </div>
     </div>
   );
-};
+});
+
+Experience.displayName = "Experience";
 
 export default Experience;

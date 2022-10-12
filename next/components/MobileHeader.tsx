@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+
+import { sections } from "./sections/sections";
+
 import styles from "../styles/components/MobileHeader.module.css";
 
-type Sections = {
-  name: string;
-  link: string;
-};
 const backdropVariants: Variants = {
   initial: {
     opacity: 0,
@@ -54,33 +53,10 @@ const iconVariants: Variants = {
       opacity: {
         duration: 0.3,
       },
-      delay: delay * 0.3 + 1.5,
+      delay: delay * 0.3,
     },
   }),
 };
-
-const sections: Sections[] = [
-  {
-    name: "About",
-    link: "#about",
-  },
-  {
-    name: "Skills",
-    link: "#",
-  },
-  {
-    name: "Experience",
-    link: "#",
-  },
-  {
-    name: "Projects",
-    link: "#",
-  },
-  {
-    name: "Contact",
-    link: "#",
-  },
-];
 
 const svgVariants: Variants = {
   hidden: {
@@ -116,10 +92,14 @@ const menuVariants: Variants = {
   }),
 };
 
-const MobileHeader = () => {
+const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
   const [expand, setExpand] = useState(false);
   const toggleExpand = () => {
     setExpand((curr) => !curr);
+  };
+  const handleOnClick = (id: string) => {
+    toggleExpand();
+    onClick(id);
   };
 
   return (
@@ -307,7 +287,7 @@ const MobileHeader = () => {
               </div>
               <motion.div className={styles.sectionContainer}>
                 {sections.map((item, index) => (
-                  <motion.p key={item.name} variants={sectionVaiants}>
+                  <motion.p key={item.name} variants={sectionVaiants} onClick={() => handleOnClick(item.id)}>
                     <span>{index}.</span> {item.name}
                   </motion.p>
                 ))}
