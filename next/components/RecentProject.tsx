@@ -1,5 +1,5 @@
 import React from "react";
-import type { ProjectDocument } from "./sections/FeaturedProjectSection";
+import type { ProjectDocument } from "./sections/ProjectSection";
 import { motion, Variants } from "framer-motion";
 
 import styles from "../styles/components/RecentProject.module.css";

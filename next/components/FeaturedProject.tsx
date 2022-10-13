@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import type { ProjectDocument } from "./sections/FeaturedProjectSection";
+import type { ProjectDocument } from "./sections/ProjectSection";
 
 import styles from "../styles/components/FeaturedProject.module.css";
 const FeaturedProject = ({ project, reverse }: { project: ProjectDocument; reverse: boolean }) => {
