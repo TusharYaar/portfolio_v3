@@ -11,6 +11,7 @@ export type ProjectDocument = {
   coffee_cups: number;
   endDate: string;
   featured: boolean;
+  featuredBrief: string;
   githubLink: string;
   hasMobileApp: boolean;
   image: { _type: "image"; asset: any };

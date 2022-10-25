@@ -69,6 +69,9 @@
     flex-grow: 1;
     margin-top: 10px;
 }
+.projectDescription p {
+    margin: 5px 0px;
+}
 
 @media (min-width: 576px) {
     .projectTitle {

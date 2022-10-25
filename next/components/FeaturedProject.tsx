@@ -17,7 +17,7 @@ const FeaturedProject = ({ project, reverse }: { project: ProjectDocument; rever
             <span key={item}>{item}</span>
           ))}
         </div>
-        <div className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: project.description }} />
+        <div className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: project.featuredBrief }} />
       </div>
       <div className={styles.projectLinks}>{}</div>
     </div>

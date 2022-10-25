@@ -35,7 +35,7 @@ const Hello = () => {
           by smashing keyboard.
         </motion.p>
       </motion.div>
-      <motion.div className={styles.brief}>
+      <motion.div className={styles.brief} variants={lineVariants} custom={4} initial="hidden" animate="visible">
         I am a final year student from India. I can make website and cross-platform apps (sometime design them too).
         Currently I&apos;m working as a freelancer and will be joining
         <span> Oracle</span> in January.

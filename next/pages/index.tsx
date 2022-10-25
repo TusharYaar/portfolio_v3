@@ -96,6 +96,7 @@ export async function getStaticProps() {
       ...project,
       imageUrl: builder.image(project.image).url(),
       description: await parser.process(project.description).then((file) => String(file)),
+      featuredBrief: await parser.process(project.featuredBrief).then((file) => String(file)),
     }))
   );
 

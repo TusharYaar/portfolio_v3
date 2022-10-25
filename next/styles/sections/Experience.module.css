@@ -131,6 +131,7 @@ a.companyName:after {
     .sideline {
         width: 5px;
         height: 100%;
+        min-height: 55px;
         background-color: var(--secondary);
     }
 }
