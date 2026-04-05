@@ -1,0 +1,105 @@
+---
+---
+
+<div class="container">
+  <div class="about-lines">
+    <p class="code-line">Hello, my name is</p>
+    <p class="name-line">Tushar.</p>
+    <p class="work-line">
+      I make <span class="underline">stuff</span> on the web
+    </p>
+    <p class="code-line">by smashing keyboard.</p>
+  </div>
+  <div class="brief">
+    I am a final year student from India. I can make website and cross-platform apps (sometime design them too).
+    Currently I'm working as a freelancer and will be joining
+    <span> Oracle</span> in January.
+  </div>
+</div>
+
+<style>
+  .container {
+    min-height: calc(90vh - 70px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .code-line {
+    font-family: var(--code-font);
+    margin-top: 16px;
+    font-size: 24px;
+    color: var(--secondary);
+  }
+
+  .name-line {
+    font-weight: bold;
+    font-size: 64px;
+    color: var(--primary);
+    background: -webkit-linear-gradient(135deg, #d1831e 60%, var(--secondary));
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .work-line {
+    font-weight: bold;
+    font-size: 48px;
+    color: var(--accent);
+  }
+
+  .underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary);
+  }
+
+  .brief {
+    margin-top: 40px;
+    max-width: 540px;
+    font-size: 20px;
+    color: var(--text);
+  }
+
+  @media (min-width: 992px) {
+    .code-line {
+      font-size: 24px;
+    }
+    .name-line {
+      font-size: 72px;
+    }
+    .work-line {
+      font-size: 56px;
+    }
+    .brief {
+      font-size: 24px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .code-line {
+      font-size: 32px;
+    }
+    .name-line {
+      font-size: 80px;
+    }
+    .work-line {
+      font-size: 64px;
+    }
+    .brief {
+      font-size: 28px;
+      max-width: 772px;
+    }
+  }
+</style>

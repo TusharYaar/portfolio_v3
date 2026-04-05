@@ -1,0 +1,171 @@
+---
+---
+
+<div class="container" id="contact">
+  <h3 class="header">Get In Touch</h3>
+  <div class="content-container">
+    <p class="phrase">I would love to hear from you.</p>
+    <form class="form">
+      <div class="form-field">
+        <p>Name</p>
+        <input name="name" type="text" placeholder="John Smith" />
+      </div>
+      <div class="form-field">
+        <p>Email</p>
+        <input name="email" type="text" placeholder="jooohn@mail.com" />
+      </div>
+      <div class="form-field">
+        <p>Description</p>
+        <textarea name="description" placeholder="Can you make an app for me"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">
+        Send
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="15"
+          height="15"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.form') as HTMLFormElement;
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('Form submitted');
+        // Add your form submission logic here
+      });
+    }
+  });
+</script>
+
+<style>
+  .container {
+    margin-top: 40px;
+    padding: 10px;
+  }
+
+  .header {
+    font-size: 40px;
+    color: var(--text);
+  }
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .phrase {
+    font-family: var(--code-font);
+    font-size: 20px;
+    color: var(--secondary);
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .form-field {
+    width: 100%;
+    margin: 10px 0px;
+  }
+
+  .form-field p {
+    margin-bottom: 5px;
+    color: var(--text);
+    font-size: 16px;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    width: 100%;
+    font-family: var(--primary-font);
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: var(--background-dark);
+    color: var(--text);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--secondary-low-opacity);
+    outline: none;
+  }
+
+  .form-field input:focus-visible,
+  .form-field textarea:focus-visible {
+    border: 1px solid var(--secondary);
+  }
+
+  .form-field textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .submit-btn {
+    padding: 10px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: var(--secondary);
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .submit-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .submit-btn:active {
+    transform: scale(0.9);
+  }
+
+  .submit-btn svg {
+    margin-left: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .content-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header {
+      font-size: 48px;
+      color: var(--text);
+    }
+
+    .phrase {
+      max-width: 30%;
+      font-size: 24px;
+    }
+  }
+</style>

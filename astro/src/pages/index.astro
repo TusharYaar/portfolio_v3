@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hello from '../components/sections/Hello.astro';
+import AboutMe from '../components/sections/AboutMe.astro';
+import Experience from '../components/sections/Experience.astro';
+import ProjectSection from '../components/sections/ProjectSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+
+import { client, urlFor } from '../lib/sanity';
+import { formatDate } from '../lib/utils';
+import type { ExperienceObject, ProjectDocument } from '../types';
+
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
+
+// Fetch data from Sanity
+let experiences = (await client.fetch(`*[_type == "experience"] | order(startDate asc)`)) as ExperienceObject[];
+let allProjects = (await client.fetch(`*[_type == "project"] | order(endDate desc)`)) as ProjectDocument[];
+
+// Process experiences
+const parser = remark().use(remarkHtml);
+experiences = await Promise.all(
+  experiences.map(async (exp) => ({
+    ...exp,
+    description: await parser.process(exp.description).then((file) => String(file)),
+    duration: formatDate(exp.startDate, exp.endDate),
+  }))
+);
+
+// Process projects
+allProjects = await Promise.all(
+  allProjects.map(async (project) => ({
+    ...project,
+    imageUrl: urlFor(project.image).url(),
+    description: await parser.process(project.description).then((file) => String(file)),
+    featuredBrief: await parser.process(project.featuredBrief).then((file) => String(file)),
+  }))
+);
+
+const featuredProjects = allProjects.filter((project) => project.featured);
+const recentProjects = allProjects
+  .filter((project) => !project.featured)
+  .slice(0, 6)
+  .map((pro) => ({ ...pro, stack: pro.stack.slice(0, 4) }));
+---
+
+<Layout title="Tushar Agrawal">
+  <Hello />
+  <AboutMe />
+  <Experience experiences={experiences} />
+  <ProjectSection featuredProjects={featuredProjects} projects={recentProjects} />
+  <ContactSection />
+</Layout>

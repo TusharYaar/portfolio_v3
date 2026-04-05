@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+import profileImage from '../../assets/profilepic2.jpeg';
+---
+
+<div class="container" id="about">
+  <div>
+    <h3 class="heading">Who am I?</h3>
+    <p class="paragraph">
+      Hello, I am Tushar S Agrawal, a final year student at Vellore Institute of Technology, Vellore. I am currently
+      pursuing a Bachelor's degree in computer science. I am a quick learner and I always strive to learn
+      something new in any project I make. I try to keep up to date with latest. Apart from technical skills, I like
+      to play guitar, synthesizer and flute. I also used to play for the school band.
+    </p>
+  </div>
+  <div class="image-container">
+    <Image src={profileImage} alt="Tushar S Agrawal" class="image" />
+  </div>
+</div>
+
+<style>
+  .container {
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .heading {
+    font-family: var(--code-font);
+    margin-top: 16px;
+    font-size: 32px;
+    color: var(--secondary);
+    font-weight: normal;
+  }
+
+  .paragraph {
+    margin-top: 5px;
+    max-width: 540px;
+    font-size: 20px;
+    color: var(--text);
+  }
+
+  .image-container {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .image {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      flex-direction: row;
+    }
+    .heading {
+      font-size: 32px;
+    }
+    .paragraph {
+      margin-top: 40px;
+      max-width: 500px;
+    }
+    .image-container {
+      max-width: 250px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .paragraph {
+      max-width: 540px;
+    }
+    .image-container {
+      max-width: 300px;
+    }
+  }
+</style>

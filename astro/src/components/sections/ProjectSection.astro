@@ -1,0 +1,80 @@
+---
+import type { ProjectDocument } from '../../types';
+import FeaturedProject from '../FeaturedProject.astro';
+import RecentProject from '../RecentProject.astro';
+
+interface Props {
+  featuredProjects: ProjectDocument[];
+  projects: ProjectDocument[];
+}
+
+const { featuredProjects, projects } = Astro.props;
+---
+
+<div class="container" id="projects">
+  <h3 class="header">Projects I proudly showcase</h3>
+  <div class="feature-project-container">
+    {featuredProjects.map((project, index) => (
+      <FeaturedProject project={project} reverse={index % 2 === 0} />
+    ))}
+  </div>
+  <div class="recent-project-section">
+    <h3 class="sub-header">Other projects i made recently...</h3>
+    <div class="recent-project-container">
+      {projects.map((project) => (
+        <RecentProject project={project} />
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    padding: 10px;
+    padding-top: 100px;
+  }
+
+  .header {
+    font-size: 40px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .recent-project-section {
+    margin-top: 60px;
+  }
+
+  .sub-header {
+    font-family: var(--code-font);
+    color: var(--secondary);
+    font-size: 24px;
+    font-weight: normal;
+    margin-left: 20px;
+  }
+
+  .recent-project-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 100%;
+    padding: 20px;
+  }
+
+  @media (min-width: 576px) {
+    .recent-project-container {
+      grid-template-columns: 50% 50%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .header {
+      font-size: 48px;
+      color: var(--text);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .recent-project-container {
+      grid-template-columns: 33.34% 33.33% 33.33%;
+    }
+  }
+</style>

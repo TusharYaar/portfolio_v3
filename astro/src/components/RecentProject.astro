@@ -1,0 +1,158 @@
+---
+import type { ProjectDocument } from '../types';
+
+interface Props {
+  project: ProjectDocument;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="container">
+  <h4 class="project-title">{project.title}</h4>
+  <div class="project-stack">
+    {project.stack.map((item) => (
+      <span>{item}</span>
+    ))}
+  </div>
+  <div class="project-description" set:html={project.brief} />
+  <div class="project-links">
+    <a href={project.githubLink} target="_blank" rel="noreferrer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={25}
+        height={25}
+        viewBox="0 0 25 25"
+        fill="none"
+        stroke="var(--secondary)"
+        stroke-width="2"
+      >
+        <path
+          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+        />
+      </svg>
+    </a>
+    <a href={project.url} target="_blank" rel="noreferrer">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={25}
+        height={25}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="var(--secondary)"
+        stroke-width="2"
+      >
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+        <polyline points="15 3 21 3 21 9" />
+        <line x1="10" y1="14" x2="21" y2="3" />
+      </svg>
+    </a>
+    {project.hasMobileApp && project.playstoreUrl && (
+      <a href={project.playstoreUrl} target="_blank" rel="noreferrer">
+        <svg
+          stroke="var(--secondary)"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 16 16"
+          fill="none"
+          width={25}
+          height={25}
+        >
+          <path
+            d="M11.452,9.125c-0.344,0-0.625-0.28-0.625-0.625c0-0.344,0.28-0.625,0.625-0.625c0.344,0,0.625,0.28,0.625,0.625 C12.076,8.844,11.796,9.125,11.452,9.125"
+          />
+          <path
+            d="M4.548,9.125c-0.344,0-0.625-0.28-0.625-0.625c0-0.344,0.28-0.625,0.625-0.625c0.344,0,0.625,0.28,0.625,0.625 C5.173,8.844,4.893,9.125,4.548,9.125"
+          />
+          <line
+            x1="11.454"
+            x2="12.724"
+            y1="5.484"
+            y2="3.251"
+            fill="none"
+            stroke="var(--secondary)"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+          />
+          <line
+            x1="4.546"
+            x2="3.276"
+            y1="5.484"
+            y2="3.251"
+            fill="none"
+            stroke="var(--secondary)"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+          />
+          <path
+            fill="none"
+            stroke="var(--secondary)"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            d="M15.505,11.5 C15.153,7.663,11.929,4.656,8,4.656S0.847,7.663,0.495,11.5H15.505z"
+          />
+        </svg>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--background-dark);
+    color: var(--text);
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .container:hover {
+    transform: translateY(-5px);
+    color: var(--secondary);
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-stack {
+    margin: 10px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .project-stack span {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-family: var(--code-font);
+    font-size: 12px;
+    color: #c4c4c4;
+  }
+
+  .project-description {
+    flex: 1;
+    margin: 10px 0px;
+  }
+
+  .project-links {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .project-links a {
+    margin-right: 10px;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-links a:hover {
+    opacity: 0.7;
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+const sections = [
+  { name: "About", id: "about" },
+  { name: "Experience", id: "experience" },
+  { name: "Projects", id: "projects" },
+  { name: "Contact", id: "contact" },
+];
+---
+
+<nav class="navbar">
+  <svg
+    id="Layer_1"
+    data-name="Layer 1"
+    width={40}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1000 1000"
+  >
+    <rect
+      x="25"
+      y="25"
+      width="950"
+      height="950"
+      rx="110"
+      fill="none"
+      stroke="var(--secondary)"
+      stroke-miterlimit="10"
+      stroke-width="50"
+    />
+    <path
+      d="M140.551,215.094h385v69.3h-151.2v420.7h-82.6v-420.7h-151.2Z"
+      fill="var(--secondary)"
+    />
+    <path
+      d="M839.151,705.094h-72.1l-4.9-35a122.843,122.843,0,0,1-41.649,29.4,129.389,129.389,0,0,1-52.15,10.5q-40.606,0-70.7-17.15t-46.2-50.4q-16.11-33.24-16.1-82.25v-205.1h79.1v193.9q0,44.1,17.5,66.85t53.9,22.75q35,0,54.95-22.75t19.95-66.85v-193.9h78.4Z"
+      fill="var(--secondary)"
+    />
+  </svg>
+  <div class="sections">
+    {sections.map((item, index) => (
+      <p data-section={item.id}>
+        <span>{index}.</span> {item.name}
+      </p>
+    ))}
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sectionLinks = document.querySelectorAll('.sections p');
+    
+    sectionLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const sectionId = link.getAttribute('data-section');
+        if (sectionId) {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100vw;
+    background-color: var(--background);
+    color: var(--secondary);
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+
+  .sections {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .sections p {
+    padding: 10px;
+    font-family: var(--primary-font);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .sections p:hover {
+    color: var(--text);
+  }
+
+  .sections p span {
+    font-family: var(--code-font);
+  }
+</style>
