@@ -5,17 +5,21 @@ const checkWidth = (width: number, values: number[]) => {
 };
 
 const useGreaterThanView = (width: number[]) => {
-  const [state, setState] = useState<boolean[]>(
-    typeof window === "undefined"
-      ? new Array(width.length).fill(true, 0, width.length)
-      : checkWidth(window.innerWidth, width)
+  const widthKey = width.join(",");
+
+  // Keep initial render identical on server and client; read window only after mount.
+  const [state, setState] = useState<boolean[]>(() =>
+    new Array(width.length).fill(true),
   );
 
   useEffect(() => {
-    const handleResize = () => setState(checkWidth(window.innerWidth, width));
+    const breakpoints = widthKey.split(",").map(Number);
+    const handleResize = () =>
+      setState(checkWidth(window.innerWidth, breakpoints));
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [width, state]);
+  }, [widthKey]);
 
   return state;
 };

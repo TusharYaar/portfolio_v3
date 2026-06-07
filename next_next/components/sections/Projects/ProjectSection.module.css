@@ -69,24 +69,6 @@
     display: none;
 }
 
-.recentProjectSection {
-    margin-top: 60px;
-}
-.subHeader {
-    font-family: var(--code-font);
-    color: var(--secondary);
-    font-size: 24px;
-    font-weight: normal;
-    margin-left: 20px;
-}
-
-.recentProjectContainer {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 100%;
-    padding: 20px;
-}
-
 @media (min-width: 576px) {
 }
 

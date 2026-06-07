@@ -10,8 +10,8 @@ const Certificates = ({ ref }: { ref: DivRef }) => {
       <div>
         <h3 className={styles.heading}>Some of my certificates</h3>
         <div className={styles.certificatesGrid}>
-          {DATA.map((cert, index) => (
-            <div className={styles.certificate} key={`certificate-${index}`}>
+          {DATA.map((cert) => (
+            <div className={styles.certificate} key={cert.title}>
               <Image
                 src={cert.image}
                 className={styles.certificateImage}
@@ -21,7 +21,14 @@ const Certificates = ({ ref }: { ref: DivRef }) => {
               />
               <h4 className={styles.certificateTitle}>{cert.title}</h4>
               <p className={styles.certificateIssuer}>
-                Issued by <a>{cert.issuer}</a>
+                Issued by{" "}
+                <a
+                  href={cert.issuerUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {cert.issuer}
+                </a>
               </p>
               <p className={styles.description}>{cert.description}</p>
               <p className={styles.certificateEarned}>

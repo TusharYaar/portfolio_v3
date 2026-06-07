@@ -1,3 +1,4 @@
+import { ReactNode, useMemo } from "react";
 import styles from "../styles/Layout.module.css";
 import useGreaterThanView from "../hooks/useGreaterThanView";
 import Header from "./Header";
@@ -10,10 +11,11 @@ const Layout = ({
   children,
   handleNavigation,
 }: {
-  children: JSX.Element;
+  children: ReactNode;
   handleNavigation: (id: string) => void;
 }) => {
-  const isGreaterView = useGreaterThanView([576, 768]);
+  const breakpoints = useMemo(() => [576, 768], []);
+  const isGreaterView = useGreaterThanView(breakpoints);
 
   return (
     <>

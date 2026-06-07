@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { RESUME_URL } from "../constants/links";
 import styles from "../styles/components/LeftBar.module.css";
 
 const iconVariants: Variants = {
@@ -66,7 +67,7 @@ const LeftBar = () => {
               />
             </motion.svg>
           </a>
-          <a>
+          <a href={RESUME_URL} target="_blank" rel="noreferrer" aria-label="Resume">
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

@@ -44,17 +44,30 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-    /* background-color: antiquewhite; */
-    margin:auto;
+    margin: auto;
 }
-.sectionContainer p {
+.sectionItem {
     padding: 10px;
     font-family: var(--primary-font);
     color: var(--secondary);
     font-size: 36px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
 }
-.sectionContainer p span {
+.sectionItem span {
    font-family: var(--code-font);
+}
+
+.logoButton,
+.menuButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .navbar {

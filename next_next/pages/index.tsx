@@ -6,7 +6,7 @@ import ContactSection from "@sections/Contact";
 import Head from "next/head";
 import Projects from "@sections/Projects";
 import Layout from "../components/Layout";
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, type RefObject } from "react";
 
 const Home = () => {
   const helloRef = useRef<HTMLDivElement>(null);
@@ -17,19 +17,16 @@ const Home = () => {
   const certificatesRef = useRef<HTMLDivElement>(null);
 
   const handleNavigation = useCallback((id: string) => {
-    console.log(id);
-    if (id === "hello" && helloRef.current)
-      helloRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "about" && aboutRef.current)
-      aboutRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "projects" && projectsRef.current)
-      projectsRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "contact" && contactRef.current)
-      contactRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "experience" && expRef.current)
-      expRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "certificates" && certificatesRef.current)
-      certificatesRef.current.scrollIntoView({ behavior: "smooth" });
+    const refs: Record<string, RefObject<HTMLDivElement | null>> = {
+      hello: helloRef,
+      about: aboutRef,
+      experience: expRef,
+      projects: projectsRef,
+      certificates: certificatesRef,
+      contact: contactRef,
+    };
+
+    refs[id]?.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   return (

@@ -30,7 +30,6 @@ const svgVariants: Variants = {
       opacity: {
         duration: 0.3,
       },
-      // delay: 2,
     },
   },
 };
@@ -42,14 +41,21 @@ const Header = ({ onClick }: { onClick: (id: string) => void }) => {
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
+      aria-label="Main navigation"
     >
-      <div className={styles.icon} onClick={() => onClick("hello")}>
+      <button
+        type="button"
+        className={styles.icon}
+        onClick={() => onClick("hello")}
+        aria-label="Scroll to top"
+      >
         <motion.svg
           id="Layer_1"
           data-name="Layer 1"
           width={40}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1000 1000"
+          aria-hidden="true"
         >
           <motion.rect
             x="25"
@@ -74,16 +80,17 @@ const Header = ({ onClick }: { onClick: (id: string) => void }) => {
             variants={svgVariants}
           />
         </motion.svg>
-      </div>
+      </button>
       <div className={styles.sections}>
         {sections.map((item, index) => (
-          <p
+          <button
+            type="button"
             key={item.id}
             onClick={() => onClick(item.id)}
             className={styles.sectionItem}
           >
-            <span>{index}.</span> {item.name}
-          </p>
+            <span>{String(index + 1).padStart(2, "0")}.</span> {item.name}
+          </button>
         ))}
       </div>
     </motion.nav>

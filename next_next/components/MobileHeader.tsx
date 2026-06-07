@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 
 import { sections } from "./sections/sections";
+import { RESUME_URL } from "../constants/links";
 
 import styles from "../styles/components/MobileHeader.module.css";
 
@@ -179,7 +180,7 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
                     />
                   </motion.svg>
                 </a>
-                <a>
+                <a href={RESUME_URL} target="_blank" rel="noreferrer" aria-label="Resume">
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -299,27 +300,42 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
               </div>
               <motion.div className={styles.sectionContainer}>
                 {sections.map((item, index) => (
-                  <motion.p
-                    key={item.name}
+                  <motion.button
+                    type="button"
+                    key={item.id}
+                    className={styles.sectionItem}
                     variants={sectionVaiants}
                     onClick={() => handleOnClick(item.id)}
                   >
-                    <span>{index}.</span> {item.name}
-                  </motion.p>
+                    <span>{String(index + 1).padStart(2, "0")}.</span>{" "}
+                    {item.name}
+                  </motion.button>
                 ))}
               </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.nav className={styles.navbar} initial="hidden" animate="visible">
-        <motion.svg
-          id="Layer_1"
-          data-name="Layer 1"
-          width={30}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1000 1000"
+      <motion.nav
+        className={styles.navbar}
+        initial="hidden"
+        animate="visible"
+        aria-label="Main navigation"
+      >
+        <button
+          type="button"
+          className={styles.logoButton}
+          onClick={() => onClick("hello")}
+          aria-label="Scroll to top"
         >
+          <motion.svg
+            id="Layer_1"
+            data-name="Layer 1"
+            width={30}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1000 1000"
+            aria-hidden="true"
+          >
           <motion.rect
             x="25"
             y="25"
@@ -343,18 +359,26 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
             variants={svgVariants}
           />
         </motion.svg>
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--secondary)"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        </button>
+        <button
+          type="button"
+          className={styles.menuButton}
           onClick={toggleExpand}
+          aria-label={expand ? "Close menu" : "Open menu"}
+          aria-expanded={expand}
         >
+          <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--secondary)"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
           <motion.line
             variants={menuVariants}
             custom={0}
@@ -386,6 +410,7 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
             y2="18"
           />
         </motion.svg>
+        </button>
       </motion.nav>
     </>
   );
