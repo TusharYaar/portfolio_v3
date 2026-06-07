@@ -1,0 +1,128 @@
+.container {
+    min-height: 100vh;
+    padding: 16px;
+    padding-top: 48px;
+    width: 100%;
+}
+.header {
+    font-size: 40px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.featureProjectContainer {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+    grid-template-rows: repeat(3, 300px);
+    margin-top: 16px;
+}
+.featureProject {
+    padding: 16px;
+    border-radius: var(--border-radius);
+    background-color: var(--background-dark);
+    overflow: hidden;
+    position: relative;
+}
+
+.featureProjectTitle {
+    font-size: 24px;
+    color: var(--text);
+    font-family: var(--primary-font);
+}
+.featureProjectDescription {
+    font-weight: normal;
+    color: var(--text);
+    margin: 8px 0;
+    font-size: 16px;
+}
+.featureProjectImage {
+    width: 100%;
+    height: 100%;
+    object-position: top left;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+#snaps {
+    grid-column: 1 / span 9;
+    grid-row: 1 / span 1;
+}
+
+#moneybracket {
+    grid-column: 6 / span 4;
+    grid-row: 2 / span 1;
+}
+
+#docdepo {
+    grid-column: 1 / span 5;
+    grid-row: 2 / span 1;
+}
+
+#mockback {
+    grid-column: 1 / span 9;
+    grid-row: 3 / span 1;
+}
+
+#colorquest {
+    display: none;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+    .header {
+        font-size: 48px;
+        color: var(--text);
+    }
+
+    .featureProjectContainer {
+        column-gap: 16px;
+        row-gap: 16px;
+    }
+}
+
+@media (min-width: 992px) {
+    .featureProjectContainer {
+        column-gap: 8px;
+        row-gap: 8px;
+        grid-template-rows: repeat(2, 300px);
+    }
+    #snaps {
+        grid-column: 1 / span 5;
+        grid-row: 1 / span 1;
+    }
+
+    #moneybracket {
+        grid-column: 4 / span 3;
+        grid-row: 2 / span 1;
+    }
+
+    #docdepo {
+        grid-column: 6 / span 4;
+        grid-row: 1 / span 1;
+    }
+
+    #mockback {
+        grid-column: 1 / span 3;
+        grid-row: 2 / span 1;
+    }
+
+    #colorquest {
+        grid-column: 7 / span 3;
+        grid-row: 2 / span 1;
+        display: block;
+    }
+}
+
+@media (min-width: 1200px) {
+    .featureProjectContainer {
+        column-gap: 16px;
+        row-gap: 16px;
+    }
+}
+
+@media (min-width: 1400px) {
+}
