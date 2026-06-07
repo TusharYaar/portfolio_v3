@@ -1,0 +1,11 @@
+.footer{ 
+    background-color: var(--background-dark);
+    position: sticky;
+    top: 100%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+}
