@@ -1,43 +1,35 @@
-import Hello from "../components/sections/Hello";
-import AboutMe from "../components/sections/AboutMe";
-import Experience, {
-  ExperienceObject,
-} from "../components/sections/Experience";
-
-import { format, getYear, parseISO } from "date-fns";
-import ContactSection from "../components/sections/ContactSection";
+import Hello from "@sections/Hello";
+import AboutMe from "@sections/AboutMe";
+import Certificates from "@sections/Certificates";
+import Experience from "@sections/Experience";
+import ContactSection from "@sections/Contact";
 import Head from "next/head";
-import ProjectSection, {
-  ProjectDocument,
-} from "../components/sections/ProjectSection";
+import Projects from "@sections/Projects";
 import Layout from "../components/Layout";
 import { useCallback, useRef } from "react";
 
-const Home = ({
-  experiences,
-  featuredProjects,
-  allProjects,
-}: {
-  experiences: ExperienceObject[];
-  featuredProjects: ProjectDocument[];
-  allProjects: ProjectDocument[];
-}) => {
-  const helloRef = useRef(null);
+const Home = () => {
+  const helloRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const expRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const certificatesRef = useRef<HTMLDivElement>(null);
 
   const handleNavigation = useCallback((id: string) => {
     console.log(id);
+    if (id === "hello" && helloRef.current)
+      helloRef.current.scrollIntoView({ behavior: "smooth" });
     if (id === "about" && aboutRef.current)
       aboutRef.current.scrollIntoView({ behavior: "smooth" });
-    if (id === "projects" && projectRef.current)
-      projectRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "projects" && projectsRef.current)
+      projectsRef.current.scrollIntoView({ behavior: "smooth" });
     if (id === "contact" && contactRef.current)
       contactRef.current.scrollIntoView({ behavior: "smooth" });
     if (id === "experience" && expRef.current)
       expRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "certificates" && certificatesRef.current)
+      certificatesRef.current.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   return (
@@ -46,10 +38,11 @@ const Home = ({
         <Head>
           <title>Tushar Agrawal</title>
         </Head>
-        <Hello />
+        <Hello ref={helloRef} />
         <AboutMe ref={aboutRef} />
-        <Experience experiences={[]} ref={expRef} />
-        <ProjectSection featuredProjects={[]} projects={[]} ref={projectRef} />
+        <Experience ref={expRef} />
+        <Projects ref={projectsRef} />
+        <Certificates ref={certificatesRef} />
         <ContactSection ref={contactRef} />
       </>
     </Layout>

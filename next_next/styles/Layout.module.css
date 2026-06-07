@@ -14,11 +14,4 @@
     padding: 0px;
     max-width: 1140px;
     margin: auto;
-    margin-top: 70px;
-}
-
-@media (min-width: 772px) {
-    .container {
-        padding: 20px;
-    }
 }

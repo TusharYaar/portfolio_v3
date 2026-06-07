@@ -1,5 +1,4 @@
-import React from "react";
-import type { ProjectDocument } from "./sections/ProjectSection";
+import type { ProjectDocument } from "@sections/Projects";
 import { motion, Variants } from "framer-motion";
 
 import styles from "../styles/components/RecentProject.module.css";
@@ -42,14 +41,23 @@ const iconVariants: Variants = {
 
 const RecentProject = ({ project }: { project: ProjectDocument }) => {
   return (
-    <motion.div className={styles.container} variants={variants} initial="initial" animate="visible" whileHover="hover">
+    <motion.div
+      className={styles.container}
+      variants={variants}
+      initial="initial"
+      animate="visible"
+      whileHover="hover"
+    >
       <h4 className={styles.projectTitle}>{project.title}</h4>
       <div className={styles.projectStack}>
         {project.stack.map((item) => (
           <span key={item}>{item}</span>
         ))}
       </div>
-      <div className={styles.projectDescription} dangerouslySetInnerHTML={{ __html: project.brief }} />
+      <div
+        className={styles.projectDescription}
+        dangerouslySetInnerHTML={{ __html: project.brief }}
+      />
       <motion.div className={styles.projectLinks}>
         <a href={project.githubLink} target="_blank" rel="noreferrer">
           <motion.svg
@@ -77,13 +85,26 @@ const RecentProject = ({ project }: { project: ProjectDocument }) => {
             stroke="var(--secondary)"
             strokeWidth="2"
           >
-            <motion.path variants={iconVariants} d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <motion.path
+              variants={iconVariants}
+              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+            />
             <motion.polyline variants={iconVariants} points="15 3 21 3 21 9" />
-            <motion.line variants={iconVariants} x1="10" y1="14" x2="21" y2="3" />
+            <motion.line
+              variants={iconVariants}
+              x1="10"
+              y1="14"
+              x2="21"
+              y2="3"
+            />
           </motion.svg>
         </a>
         {project.hasMobileApp && (
-          <a href={project.playstoreUrl as string} target="_blank" rel="noreferrer">
+          <a
+            href={project.playstoreUrl as string}
+            target="_blank"
+            rel="noreferrer"
+          >
             <motion.svg
               stroke="var(--secondary)"
               xmlns="http://www.w3.org/2000/svg"

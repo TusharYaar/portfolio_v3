@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/MotionCircle.module.css";
 import { motion, Variants } from "framer-motion";
 

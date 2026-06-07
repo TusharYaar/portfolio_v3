@@ -1,6 +1,7 @@
-import React, { FormEvent, forwardRef, useCallback, useState } from "react";
+import React, { FormEvent, useCallback, useState } from "react";
 import { motion, Variants } from "framer-motion";
-import styles from "../../styles/sections/ContactSection.module.css";
+import styles from "./ContactSection.module.css";
+import { DivRef } from "@/types";
 
 const buttonVariant: Variants = {
   hover: {
@@ -24,14 +25,18 @@ const iconVariant: Variants = {
   },
 };
 
-const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
+const ContactSection = ({ ref }: { ref: DivRef }) => {
   const [form, setform] = useState({
     name: "",
     email: "",
     description: "",
   });
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleOnChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     setform((val) => ({ ...val, [e.target.name]: e.target.value }));
   };
 
@@ -48,7 +53,13 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
         <form onSubmit={onClickSubmit} className={styles.form}>
           <div className={styles.formField}>
             <p>Name</p>
-            <input name="name" value={form.name} type="text" placeholder="John Smith" onChange={handleOnChange} />
+            <input
+              name="name"
+              value={form.name}
+              type="text"
+              placeholder="John Smith"
+              onChange={handleOnChange}
+            />
           </div>
           <div className={styles.formField}>
             <p>Email</p>
@@ -98,7 +109,7 @@ const ContactSection = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 ContactSection.displayName = "ContactSection";
 export default ContactSection;

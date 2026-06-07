@@ -1,35 +1,17 @@
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { forwardRef, useState } from "react";
-import styles from "../../styles/sections/Experience.module.css";
+import styles from "./Experience.module.css";
+import { DivRef } from "@/types";
+import DATA from "./data";
 
-export type ExperienceObject = {
-  _createdAt: string;
-  _id: string;
-  _type: string;
-  _updatedAt: string;
-  company: string;
-  companyUrl: string;
-  startDate: string;
-  role: string;
-  type: string;
-  worksHere?: boolean;
-  endDate?: string;
-  description: string;
-  duration: string;
-};
-
-const Experience = forwardRef<
-  HTMLDivElement,
-  { experiences: ExperienceObject[] }
->(({ experiences }, ref) => {
-  console.log(experiences);
-  const [active, setActive] = useState(experiences[experiences.length - 1]);
+const Experience = ({ ref }: { ref: DivRef }) => {
+  const [active, setActive] = useState(DATA[DATA.length - 1]);
   return (
     <div className={styles.container} ref={ref}>
       <h3 className={styles.heading}>Place I&apos;ve Worked..</h3>
       <div className={styles.content}>
         <div className={styles.tabsContainer}>
-          {experiences.map((item) => (
+          {DATA.map((item) => (
             <motion.div
               className={styles.tab}
               key={item._id}
@@ -63,13 +45,17 @@ const Experience = forwardRef<
               </a>
             </h3>
             <p className={styles.duration}>{active.duration}</p>
-            <div dangerouslySetInnerHTML={{ __html: active.description }} />
+            <ul>
+              {active.description.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
           </motion.div>
         </AnimatePresence>
       </div>
     </div>
   );
-});
+};
 
 Experience.displayName = "Experience";
 

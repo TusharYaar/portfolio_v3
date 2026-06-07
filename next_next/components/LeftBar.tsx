@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, Variants } from "framer-motion";
 import styles from "../styles/components/LeftBar.module.css";
 
@@ -30,7 +29,12 @@ const barVariant: Variants = {
 
 const LeftBar = () => {
   return (
-    <motion.div className={styles.leftSide} variants={barVariant} initial="hidden" animate="visible">
+    <motion.div
+      className={styles.leftSide}
+      variants={barVariant}
+      initial="hidden"
+      animate="visible"
+    >
       <div className={styles.fixedContainer}>
         <div className={styles.iconsContainer}>
           <a href="mailto:tusharsagrawal16@gmail.com">
@@ -84,7 +88,11 @@ const LeftBar = () => {
               />
             </motion.svg>
           </a>
-          <a href="https://www.github.com/tusharyaar" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.github.com/tusharyaar"
+            target="_blank"
+            rel="noreferrer"
+          >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -104,7 +112,11 @@ const LeftBar = () => {
               />
             </motion.svg>
           </a>
-          <a href="https://www.linkedin.com/in/tusharyaar/" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.linkedin.com/in/tusharyaar/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -145,7 +157,11 @@ const LeftBar = () => {
               />
             </motion.svg>
           </a>
-          <a href="https://twitter.com/tushar_yaar" target="_blank" rel="noreferrer">
+          <a
+            href="https://twitter.com/tushar_yaar"
+            target="_blank"
+            rel="noreferrer"
+          >
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

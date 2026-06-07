@@ -1,0 +1,26 @@
+[
+  {
+    "image": "/certificates/ckad.png",
+    "title": "Certified Kubernetes Application Developer",
+    "issuer": "Linux Foundation",
+    "description": "Professional certification designed to validate skills in creating, configuring, and deploying cloud-native applications on Kubernetes.",
+    "earnedOn": "06-Jun-2026",
+    "expiresOn": "05-Jun-2028"
+  },
+  {
+    "image": "/certificates/architect.png",
+    "title": "OCI 2025 Certified Architect Associate",
+    "issuer": "Oracle",
+    "description": "Strong foundational knowledge of architecting infrastructure using Oracle Cloud Infrastructure (OCI) services.",
+    "earnedOn": "22-Oct-2025",
+    "expiresOn": "22-Oct-2027"
+  },
+  {
+    "image": "/certificates/foundations.png",
+    "title": "OCI 2025 Certified Foundations Associate",
+    "issuer": "Oracle",
+    "description": "Understanding of basic cloud concepts and familiarity with core OCI services.",
+    "earnedOn": "21-Oct-2025",
+    "expiresOn": "21-Oct-2027"
+  }
+]

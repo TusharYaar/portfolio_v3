@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 
 import { sections } from "./sections/sections";
@@ -201,7 +201,11 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
                     />
                   </motion.svg>
                 </a>
-                <a href="https://www.github.com/tusharyaar" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.github.com/tusharyaar"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -221,7 +225,11 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
                     />
                   </motion.svg>
                 </a>
-                <a href="https://www.linkedin.com/in/tusharyaar/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/tusharyaar/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -262,7 +270,11 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
                     />
                   </motion.svg>
                 </a>
-                <a href="https://twitter.com/tushar_yaar" target="_blank" rel="noreferrer">
+                <a
+                  href="https://twitter.com/tushar_yaar"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -287,7 +299,11 @@ const MobileHeader = ({ onClick }: { onClick: (id: string) => void }) => {
               </div>
               <motion.div className={styles.sectionContainer}>
                 {sections.map((item, index) => (
-                  <motion.p key={item.name} variants={sectionVaiants} onClick={() => handleOnClick(item.id)}>
+                  <motion.p
+                    key={item.name}
+                    variants={sectionVaiants}
+                    onClick={() => handleOnClick(item.id)}
+                  >
                     <span>{index}.</span> {item.name}
                   </motion.p>
                 ))}

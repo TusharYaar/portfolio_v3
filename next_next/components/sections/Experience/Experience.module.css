@@ -1,12 +1,12 @@
 .container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
-    /* margin: 100px auto; */
     overflow: hidden;
-    min-height: 100vh;
-
+    min-height: 100dvh;
+    padding: var(--section-padding);
+    padding-top: var(--header-height);
 }
 .heading {
     color: var(--text);
@@ -24,37 +24,36 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 100vw;
+    width: 100%;
     overflow: scroll;
-    scrollbar-width: none;  
+    scrollbar-width: none;
 }
 .tabsContainer::-webkit-scrollbar {
     display: none;
 }
 .tab {
-    padding:0px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color:var(--text);
+    color: var(--text);
     width: 100%;
 }
 .tab:hover {
     background-color: var(--secondary-low-opacity);
 }
-.tab span { 
+.tab span {
     padding: 20px;
     white-space: nowrap;
-
 }
 
 .employment {
     font-size: 24px;
-    color:(--text);
+    color: (--text);
 }
 
 .companyName {
-    color:var(--secondary);
+    color: var(--secondary);
     margin-left: 10px;
 }
 
@@ -75,15 +74,15 @@
 .description ul li {
     margin: 10px;
 }
-.description a{
+.description a {
     text-decoration: none;
     color: var(--secondary);
     display: inline-block;
     position: relative;
-    }
+}
 
-.description a::after{
-    content: '';
+.description a::after {
+    content: "";
     position: absolute;
     width: 100%;
     transform: scaleX(0);
@@ -98,19 +97,17 @@ a.companyName:after {
     height: 2px;
     bottom: -2px;
 }
- 
+
 .description a:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 .sideline {
     width: 100%;
     height: 2px;
     background-color: var(--secondary);
-
 }
-
 
 @media (min-width: 576px) {
     .content {
@@ -121,11 +118,11 @@ a.companyName:after {
         flex-direction: column;
     }
     .tab {
-        padding:0px;
+        padding: 0px;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        color:var(--text);
+        color: var(--text);
         width: 100%;
     }
     .sideline {

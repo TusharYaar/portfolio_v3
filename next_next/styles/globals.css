@@ -13,11 +13,15 @@
     --text: #fdfdfd;
     --background: #131224;
     --background-dark: #0f0e1d;
-    --border-radius: 2px;
-    --code-font: "Cousine", monospace;
+    --border-radius: 8px;
+    --code-font: "JetBrains Mono", monospace;
     --primary-font: "Albert Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --header-height: 76px;
+
+    /*Section */
+    --section-padding: 16px;
 }
 
 body {

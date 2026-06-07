@@ -16,6 +16,10 @@ export const sections: SectionType[] = [
     id: "projects",
   },
   {
+    name: "Certificates",
+    id: "certificates",
+  },
+  {
     name: "Contact",
     id: "contact",
   },
